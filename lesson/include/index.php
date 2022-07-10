@@ -1,13 +1,13 @@
-<!-- <?php
+<?php
 
-    include("test.php");
-    echo "index <br>";
+    // include("test.php");
+    // echo "index <br>";
 
-    include("function.php");
-    echo "square = ".(square(4))."<br>";
-    echo "cube = ".(cube(2));
+    // include("function.php");
+    // echo "square = ".(square(4))."<br>";
+    // echo "cube = ".(cube(2));
 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html>
