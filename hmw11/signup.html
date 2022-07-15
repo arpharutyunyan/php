@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+
+    <body>
+
+        <form action="" method="POST">
+            <div class="container">
+                
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required><br><br>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+
+                <hr>
+                
+                <button type="submit" class="registerbtn">Register</button>
+            </div>
+
+
+            
+            <div class="container signin">
+                <p>Already have an account? <a href="./login.html" target="_blank">Sign in</a>.</p>
+            </div>
+        </form>
+
+        <script>
+            $(".registerbtn").click(function(){
+                    let email = $("#email").val();
+                    let password = $("#psw").val();
+
+                    $.post("signup.php",
+                    
+                        {   
+                            email: email,
+                            password: password
+                        },
+
+                        function(data){
+                            if(data == true){
+                                alert("Email already taken please use another email address");
+                            }else{
+                                window.location.href = "login.html";
+                            }  
+                        }
+                    
+                    )
+                }
+            )
+        </script>
+
+    </body>
+</html>

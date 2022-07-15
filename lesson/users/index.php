@@ -5,7 +5,10 @@
     </head>
     <body>
 
-        <form action="users.php" method="GET">
+        <form action="users.php" method="POST">
+
+            <label for="name"> Enter name: </label><br><br>
+            <input type="text" name="name" id="name"><br><br>
 
             <label for="number"> Enter number: </label><br><br>
             <input type="number" name="number" id="number"><br><br>
@@ -21,14 +24,21 @@
             $("#button").click(function()
                 {
                     let num = $("#number").val();  // get number from html form
+                    let name = $("#name").val();
 
-                    $.get('users.php',  // request the url from that whant to get data
-                        {number: num},  // data to be sent to the server
+                    $.post('users.php',  // request the url from that whant to get data
+                        {
+                            number: num,
+                            name: name,
+
+                        }, 
+
                         function(data){
 
                             $('#php_result').html(data); // add result to the div
                         },
                          
+                        
                     );
                 }
             )

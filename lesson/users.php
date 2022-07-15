@@ -1,28 +1,16 @@
 <?php
 
-    $users = [
-        [
-            "name" => "Artur",
-            "age" => 28
-        ],
-        [
-            "name" => "Edgar",
-            "age" => 18
-        ],
-        [
-            "name" => "Hakob",
-            "age" => 23
-        ]
-    ];
-    
+    $number = $_GET['age'];
 
-    $number = $_GET["number"];
-    
+    $users = file_get_contents("users.json");
+    $users = json_decode($users, true);
+
     if($number == ""){
         echo "Enter valid number.";
         die;
     }
 
+    
     for($i=0; $i<count($users); $i++){
 
         if($number == $users[$i]["age"]){
@@ -35,5 +23,6 @@
     if($i === count($users)){  // if $i is the last element and the for loop don't die, it means the $number is not exist
         echo "There is no user.";
     }
-  
+
+
 ?>

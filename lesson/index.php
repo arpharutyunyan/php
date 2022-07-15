@@ -22,13 +22,14 @@
                 {
                     let num = $("#number").val();  // get number from html form
 
-                    $.get('users.php',  // request the url from that whant to get data
-                        {number: num},  // data to be sent to the server
+                    $.get('users.php?age=' + num,  // request the url from that whant to get data
+                        
                         function(data){
 
                             $('#php_result').html(data); // add result to the div
                         },
                          
+                        
                     );
                 }
             )
