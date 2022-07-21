@@ -73,13 +73,12 @@
             LEFT JOIN city on city.id = user_city.city_id";
 
     $row = mysqli_query($conn, $query);
+    $data = mysqli_fetch_assoc($row);
 
     $res =[];
     $i = mysqli_num_rows($row);
 
     while($i>0){
-
-        $data = mysqli_fetch_assoc($row);
 
         $res[$data["user_name"]][]= $data["city_name"];
         $i--;
@@ -87,5 +86,17 @@
 
     echo "<pre>";
     var_dump($res);
+
+    $cities =[];
+    $i = mysqli_num_rows($row);
+
+    while($i>0){
+
+        $cities[$data["city_name"]][] = $data["user_name"];
+        $i--;
+    }
+
+    echo "<pre>";
+    var_dump($cities);
 
 ?>
