@@ -27,12 +27,6 @@
                 $query = "SELECT * FROM users WHERE name = '$arr_name' AND email = '$arr_email'";
             }
 
-            $this->showSelect($query);
-
-        }
-
-        public function showSelect($query){
-
             $db = new NewDB();
             $table = $db->runQuery($query);
             $rows = mysqli_num_rows($table);
@@ -44,6 +38,12 @@
                 
                 $rows--;
             }
+
+            return $data;
+
+        }
+
+        public function showSelect($data){
 
             foreach($data as $arr){    // print table
                 echo "id: ".$arr['id'].",\t";

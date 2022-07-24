@@ -4,7 +4,11 @@
     $user = new NewUser;
 
     $arr = ['name'=>'John', 'email'=>'aaaa@gmail.com'];
-    $user->selectWhere($arr);
+    
+    $res = $user->selectWhere($arr);
+    // echo "<pre>";
+    // print_r($res);
+    $user->showSelect($res);
     
 
 ?>
