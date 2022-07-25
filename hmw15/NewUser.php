@@ -21,10 +21,17 @@
                 
             }else{
 
-                $arr_name = $arr["name"];
-                $arr_email = $arr["email"];
-
-                $query = "SELECT * FROM users WHERE name = '$arr_name' AND email = '$arr_email'";
+                $query = "SELECT * FROM users ";
+                $where = '';
+                foreach($arr as $key=>$value){
+                    if($where != ''){
+                        $where.= " AND $key = '$value'";
+                    }else{
+                        $where.= "WHERE $key = '$value'";
+                    }
+                }
+            
+                $query.= $where;
             }
 
             $db = new NewDB();
